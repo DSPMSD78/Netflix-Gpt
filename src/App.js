@@ -1,4 +1,6 @@
+import Body from "./components/Body";
+
 function App() {
-  return <div className="text-red-500">Namaste Netflix - GPT</div>;
+  return <Body />;
 }
 export default App;
