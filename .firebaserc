@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "movieflexgpt-a01b0",
+    "production": "movieflexgpt-a01b0"
+  },
+  "targets": {},
+  "etags": {}
+}
