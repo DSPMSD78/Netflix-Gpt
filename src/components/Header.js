@@ -1,11 +1,17 @@
 const Header = () => {
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10">
-      <img
-        className="w-40"
-        alt="Netflix Logo"
-        src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production_2026-01-09/consent/87b6a5c0-0104-4e96-a291-092c11350111/019ae4b5-d8fb-7693-90ba-7a61d24a8837/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-      />
+    <div className="absolute py-2 bg-gradient-to-b from-black z-10">
+      {/* <img className="w-40" alt="Netflix Logo" src={logo} /> */}
+      <h1
+        className="text-red-600 font-bold text-4xl tracking-tighter uppercase italic"
+        style={{
+          fontFamily: "Helvetica, Arial, sans-serif",
+          transform: "scaleY(1.4) scaleX(0.9)", // Mimics the stretched Netflix look
+          textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+        }}
+      >
+        Movieflex<span className="text-white">GPT</span>
+      </h1>
     </div>
   );
 };

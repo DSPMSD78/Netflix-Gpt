@@ -3,8 +3,13 @@
 - create react app
 - configure tailwind css
 - Header
+- Routing
 - Login form
 - Sign up form
+- Form validation
+- useRef()
+- firebase setup
+- Deploying our app to production
 
 # Features
 
