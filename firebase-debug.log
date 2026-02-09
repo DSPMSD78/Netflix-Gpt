@@ -1,0 +1,49 @@
+[debug] [2026-02-09T12:58:40.170Z] ----------------------------------------------------------------------
+[debug] [2026-02-09T12:58:40.176Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\prasa\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2026-02-09T12:58:40.177Z] CLI Version:   15.5.1
+[debug] [2026-02-09T12:58:40.177Z] Platform:      win32
+[debug] [2026-02-09T12:58:40.178Z] Node Version:  v22.17.0
+[debug] [2026-02-09T12:58:40.178Z] Time:          Mon Feb 09 2026 18:28:40 GMT+0530 (India Standard Time)
+[debug] [2026-02-09T12:58:40.178Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  H:\Netflix-gpt
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-02-09T12:59:20.168Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-09T12:59:20.168Z] > authorizing via signed-in user (prasad.duggirala.369@gmail.com)
+[debug] [2026-02-09T12:59:20.169Z] Checked if tokens are valid: true, expires at: 1770644888812
+[debug] [2026-02-09T12:59:20.170Z] Checked if tokens are valid: true, expires at: 1770644888812
+[debug] [2026-02-09T12:59:20.171Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/netflixgpt-47b74 [none]
+[debug] [2026-02-09T12:59:20.716Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/netflixgpt-47b74 200
+[debug] [2026-02-09T12:59:20.717Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/netflixgpt-47b74 {"projectId":"netflixgpt-47b74","projectNumber":"413571424375","displayName":"NetflixGPT","name":"projects/netflixgpt-47b74","resources":{"hostingSite":"netflixgpt-47b74"},"state":"ACTIVE","etag":"1_30cb65e8-d698-442c-b2b0-7c307afd07e7"}
+[info] i  Using project netflixgpt-47b74 (NetflixGPT) . 
+[info] 
+=== Hosting Setup
+[debug] [2026-02-09T12:59:20.727Z] Checked if tokens are valid: true, expires at: 1770644888812
+[debug] [2026-02-09T12:59:20.728Z] Checked if tokens are valid: true, expires at: 1770644888812
+[debug] [2026-02-09T12:59:20.728Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/netflixgpt-47b74 [none]
+[debug] [2026-02-09T12:59:21.061Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/netflixgpt-47b74 200
+[debug] [2026-02-09T12:59:21.062Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/netflixgpt-47b74 {"projectId":"netflixgpt-47b74","projectNumber":"413571424375","displayName":"NetflixGPT","name":"projects/netflixgpt-47b74","resources":{"hostingSite":"netflixgpt-47b74"},"state":"ACTIVE","etag":"1_30cb65e8-d698-442c-b2b0-7c307afd07e7"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
