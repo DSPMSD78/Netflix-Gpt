@@ -2,6 +2,15 @@ import { useRef, useState } from "react";
 import { checkValidateData } from "../utils/validate";
 import backgroundImage from "../assets/background.png";
 import Header from "./Header";
+import { auth } from "../utils/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -9,7 +18,10 @@ const Login = () => {
     email: "",
     password: "",
     name: "",
+    user: "",
   });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const name = useRef("");
   const email = useRef("");
@@ -28,8 +40,58 @@ const Login = () => {
           name.current.value,
         )
       : checkValidateData(email.current.value, password.current.value);
-
     setErrorMessage(message);
+    if (message.email || message.name || message.password) return;
+
+    //Sign In Sign Up Logic
+    if (!isSignInForm) {
+      //Sign Up Logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value,
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current.value,
+            email: email.current.value,
+          })
+            .then(() => {
+              const { uid, email, displayName } = user;
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName }),
+              );
+              navigate("/browse");
+            })
+            .catch((error) => {
+              setErrorMessage({ user: error.message });
+            });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage({ user: errorCode + "-" + errorMessage });
+        });
+    } else {
+      //Sign In Logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value,
+      )
+        .then((userCredential) => {
+          // Signed in
+          // const user = userCredential.user;
+          navigate("/browse");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage({ user: errorCode + "-" + errorMessage });
+        });
+    }
   };
 
   return (
@@ -80,6 +142,7 @@ const Login = () => {
         >
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
+        <p className="text-red-500 font-bold py-2">{errorMessage.user}</p>
         <p className="cursor-pointer" onClick={handleForm}>
           {isSignInForm
             ? "New to Netflix ? Sign Up"

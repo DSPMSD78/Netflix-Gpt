@@ -10,6 +10,11 @@
 - useRef()
 - firebase setup
 - Deploying our app to production
+- Create SignUp User Account
+- Implemented Sign In user API
+- Created Redux Store with userSlice
+- Implemented Sign Out
+- Update Profile
 
 # Features
 
