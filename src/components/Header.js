@@ -1,16 +1,42 @@
 import { useNavigate } from "react-router-dom";
-import { auth } from "../utils/firebase";
 import { signOut } from "firebase/auth";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { logoutUser } from "../utils/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          }),
+        );
+        navigate("/browse");
+      } else {
+        dispatch(logoutUser());
+        navigate("/");
+      }
+    });
+    return () => unsubscribe;
+  }, []);
+
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
@@ -32,11 +58,7 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex items-center justify-evenly">
-          <img
-            className="w-12 h-12"
-            alt="userIcon"
-            src="https://occ-0-2040-2164.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTtzfQn_TnlmI0dXn5jkfRFxmK1cjkW0zvz_qkvE4MT05lZLOhPuyHXGLF4EaOKu7aYlkrYf3X_a_af3ubt2_hek8y0rYcVBbw.png?r=181"
-          />
+          <img className="w-12 h-12" alt="userIcon" src={user.photoURL} />
           <p className="font-bold text-white mx-1 px-1">{user.displayName}</p>
           <button
             onClick={handleSignOut}
