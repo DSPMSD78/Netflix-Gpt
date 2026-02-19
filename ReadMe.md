@@ -28,6 +28,11 @@
 - Update store with trailer video data
 - Embeded the youtube video in the background
 - Updated CSS
+- Created Main Container
+- Updated with trailer and movie description
+- Created Secondary Container
+- Updated with nowPlayinng, Popular and TopRated movies list
+- Created custom hooks to extract the cose to populate respective lists
 
 # Features
 
