@@ -11,3 +11,8 @@ export const API_OPTIONS = {
 };
 
 export const Image_base_url = "https://image.tmdb.org/t/p/w400";
+
+export const SUPPORTED_LANGUAGES = [
+  { code: "en", name: "English" },
+  { code: "es", name: "Spanish" },
+];

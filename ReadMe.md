@@ -33,6 +33,9 @@
 - Created Secondary Container
 - Updated with nowPlayinng, Popular and TopRated movies list
 - Created custom hooks to extract the cose to populate respective lists
+- Created a gptSlice.
+- Created a GPTSuggestion component to display GPT recommendations.
+- Provided language traslation to GPT suggestions page
 
 # Features
 
